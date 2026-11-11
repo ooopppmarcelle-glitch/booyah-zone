@@ -32,3 +32,9 @@ Ne jamais demander le mot de passe Free Fire, un jeton de session ou un code de 
 Le frontend statique peut être publié sur un hébergeur PWA statique. Les comptes, la base partagée et la passerelle API sont des étapes backend séparées.
 
 BOOYAH ZONE est un projet de fans indépendant, non affilié à Garena. Free Fire est une marque de ses propriétaires respectifs.
+
+
+## Netlify
+Le projet Netlify `booyah-zone-t6rx` est configuré et possède un déploiement publié prêt. Voir [docs/NETLIFY-SETUP.md](docs/NETLIFY-SETUP.md) pour la fonction de diagnostic et les futures variables secrètes.
+
+La fonction `netlify/functions/freefire-status.mjs` ne fait qu'indiquer l'état de configuration. Elle ne contacte pas l'API et ne révèle aucune clé. L'intégration réelle reste désactivée tant que la clé et la prise en charge du Cameroun ne sont pas confirmées.
