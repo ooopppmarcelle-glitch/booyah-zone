@@ -10,6 +10,7 @@ function escapeHTML(value="") {
 }
 function formatNumber(value) { return Number(value || 0).toLocaleString("fr-FR"); }
 function getInitials(name="BZ") { return name.trim().slice(0,2).toUpperCase(); }
+function maskUid(uid="") { const value=String(uid); return value.length>5 ? value.slice(0,3)+"•••"+value.slice(-2) : value; }
 function playerPulse(p) { return calculatePulse(p); }
 function updateMetrics() {
   $("metricPlayers").textContent = players.length;
@@ -37,7 +38,7 @@ function renderMiniLadder() {
 function renderLadder() {
   const mode = $("sortMode").value;
   const sorted = getSortedPlayers(players, mode);
-  $("fullLadder").innerHTML = sorted.length ? sorted.map((p,i) => '<div class="ladder-row"><span class="rank-number">#'+(i+1)+'</span><span class="player-avatar">'+escapeHTML(getInitials(p.name))+'</span><span><b class="player-name">'+escapeHTML(p.name)+'</b><small class="player-sub">UID '+escapeHTML(p.uid)+' · Niv. '+p.level+'</small></span><span class="ladder-stat"><b>'+formatNumber(p.br+p.cs)+'</b><small>BR + CS PTS</small></span><span class="ladder-stat"><b>'+playerPulse(p)+'</b><small>PULSE</small></span></div>').join("") : '<p class="empty-note">Pas encore de joueurs. Ajoute des profils pour démarrer.</p>';
+  $("fullLadder").innerHTML = sorted.length ? sorted.map((p,i) => '<div class="ladder-row"><span class="rank-number">#'+(i+1)+'</span><span class="player-avatar">'+escapeHTML(getInitials(p.name))+'</span><span><b class="player-name">'+escapeHTML(p.name)+'</b><small class="player-sub">UID '+escapeHTML(maskUid(p.uid))+' · Niv. '+p.level+'</small></span><span class="ladder-stat"><b>'+formatNumber(p.br+p.cs)+'</b><small>BR + CS PTS</small></span><span class="ladder-stat"><b>'+playerPulse(p)+'</b><small>PULSE</small></span></div>').join("") : '<p class="empty-note">Pas encore de joueurs. Ajoute des profils pour démarrer.</p>';
 }
 function fillCompareOptions() {
   const options = '<option value="">Choisir un joueur</option>'+players.map(p => '<option value="'+escapeHTML(p.uid)+'">'+escapeHTML(p.name)+'</option>').join("");
