@@ -1,45 +1,63 @@
 # Recherche API Free Fire — BOOYAH ZONE
 
-## Résultat
-Aucune API publique officielle Garena pour consulter les statistiques de comptes n'a été confirmée dans cette recherche. Les solutions trouvées sont des services communautaires indépendants.
-
-## Fournisseur étudié : Free Fire Community API
+## Fournisseur étudié
+Free Fire Community API
 Documentation : https://docs.freefirecommunity.com/
+Portail : https://developers.freefirecommunity.com/en
 
-La documentation annonce des endpoints de profil (`/info`) et statistiques (`/stats`), et précise explicitement que le service n'est **pas affilié, approuvé ou connecté à Garena**.
+Service communautaire tiers, non affilié à Garena. Une clé API est requise en production et doit rester côté serveur.
 
-La documentation affiche plusieurs plans et quotas :
-- Trial : playground seulement, pas d'utilisation en production.
-- Trial Pass : 300 requêtes / 24 h.
-- Beginner : 3 000 requêtes / mois.
-- Developer : 12 000 requêtes / mois.
-- Pro : 30 000 requêtes / mois.
+## Exemples JavaScript transmis
+Le propriétaire du projet a transmis des exemples fetch pour les routes suivantes :
 
-Une clé API est requise pour la production. Le fournisseur recommande les appels côté serveur et déconseille l'exposition de la clé dans le navigateur.
+| Route | Paramètres visibles | Usage à examiner |
+|---|---|---|
+| /info | region et uid dans l'URL | Informations de profil |
+| /stats | Non fournis dans l'exemple | Statistiques de carrière |
+| /image | Aucun paramètre visible | Ressources visuelles |
+| /bancheck | Aucun paramètre visible | Statut du compte |
+| /wishlist | Aucun paramètre visible | Liste de souhaits |
+| /craftland | Aucun paramètre visible | Données Craftland |
 
-## Limite régionale
-Les régions listées dans la documentation sont SG, IND et BR. La documentation consultée ne confirme pas explicitement la prise en charge du Cameroun. Il faut obtenir une réponse du fournisseur avant toute intégration.
+Ces extraits montrent la forme des appels, mais ne prouvent pas que les requêtes fonctionnent : aucune clé valide ni réponse HTTP de ces routes n'a été fournie. Les paramètres des routes autres que /info restent à confirmer.
 
-## Autres pistes examinées
-- Le dépôt communautaire `siambhau/FreeFireApi` décrit des statistiques BR et CS mais indique que l'accès passe par une clé et que certains endpoints ont un accès payant.
-- Le dépôt `jinix6/free-ff-api` documente des endpoints de compte et de statistiques, mais la disponibilité, la sécurité, la couverture régionale et les conditions d'utilisation doivent être vérifiées indépendamment.
+## Exemple de réponse /stats reçu
+Le seul JSON reçu est :
 
-## Décision BOOYAH ZONE
-**Ne pas connecter de fournisseur pour l'instant.** L'adaptateur reste désactivé. Avant activation, vérifier par écrit :
-1. prise en charge réelle des comptes de la région du Cameroun ;
-2. autorisation de réutilisation des données dans une application communautaire ;
-3. prix, quotas, disponibilité et limites d'appels ;
-4. données exactes renvoyées et fréquence de mise à jour ;
-5. politique de confidentialité et conservation des données.
+    {
+      "brCareer_solo": {},
+      "brCareer_duo": {},
+      "brCareer_squad": {}
+    }
 
-## Règles non négociables
-- Ne jamais demander le mot de passe Free Fire ou un jeton de session.
-- Ne jamais appeler une API tierce directement depuis le navigateur avec une clé secrète.
-- Afficher le fournisseur et la date de mise à jour.
-- Étiqueter les données tierces comme non officielles.
-- Garder l'import manuel disponible en solution de repli.
+Cela confirme uniquement la présence de ces trois clés dans cet exemple. Les objets étant vides, aucun champ de statistique précis n'est connu. La présence de données CS ou d'autres sections n'est pas confirmée.
 
-Sources consultées :
+Le normaliseur BOOYAH ZONE conserve les objets reçus, marque les sections vides comme indisponibles et ne transforme jamais une donnée manquante en zéro.
+
+## Couverture régionale et coûts
+Les régions listées dans la recherche précédente étaient SG, IND et BR. La couverture du Cameroun / Afrique n'est pas explicitement confirmée. Il faut une confirmation écrite du fournisseur avant d'activer la recherche pour les comptes camerounais.
+
+Les quotas et tarifs doivent être revérifiés dans la documentation officielle au moment de l'activation.
+
+## Décision technique
+Le fournisseur reste désactivé. Aucun appel externe n'est fait depuis le navigateur et aucune clé n'est stockée dans le dépôt.
+
+Avant activation, vérifier :
+1. prise en charge de la région du compte ciblé, notamment Cameroun ;
+2. paramètres exacts de chaque endpoint ;
+3. réponse réelle non vide de /info et /stats ;
+4. conditions d'utilisation et autorisation de réutilisation des données ;
+5. tarifs, quotas, limites de débit et disponibilité ;
+6. politique de confidentialité et conservation des données.
+
+## Sécurité
+- Ne jamais demander le mot de passe Free Fire, un jeton de session ou un code de connexion.
+- Ne jamais placer x-api-key dans le frontend, le dépôt Git ou une capture publique.
+- Les appels futurs doivent passer par une fonction serveur protégée, avec validation, limitation de débit et cache.
+- Afficher la source et l'heure de mise à jour.
+- Marquer les données du fournisseur comme tierces et non officielles.
+- Garder l'import manuel disponible comme solution de repli.
+
+## Sources
 - https://docs.freefirecommunity.com/
-- https://github.com/siambhau/FreeFireApi
-- https://github.com/jinix6/free-ff-api
+- https://developers.freefirecommunity.com/en
