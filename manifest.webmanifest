@@ -1,1 +1,13 @@
-{"name":"BOOYAH ZONE","short_name":"BOOYAH","start_url":"/","display":"standalone","background_color":"#080812","theme_color":"#080812","description":"Actualités, événements et guides Free Fire — communauté indépendante.","icons":[{"src":"/assets/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
+{
+  "name": "BOOYAH ZONE — Player Intelligence",
+  "short_name": "BOOYAH ZONE",
+  "description": "Passeport joueur, statistiques et classement communautaire Free Fire.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#080b12",
+  "theme_color": "#080b12",
+  "icons": [
+    {"src":"/assets/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}
