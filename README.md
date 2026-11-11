@@ -18,3 +18,13 @@ Connecter ce dépôt GitHub au projet Netlify, avec répertoire de publication `
 
 ## Indépendance
 BOOYAH ZONE est un projet de fans indépendant, non affilié à Garena. Free Fire est une marque de ses propriétaires respectifs.
+
+## BOOYAH PLAYER — bêta locale
+- Fiche joueur avec pseudo, UID, région, niveau, points BR/CS, parties et victoires.
+- Ajout facultatif d'une capture d'écran pour référence visuelle; les valeurs sont confirmées manuellement.
+- Classement local calculé à partir des points BR + CS, avec les victoires comme départage.
+- Les fiches sont enregistrées dans le stockage du navigateur sur l'appareil utilisé.
+- Pas encore de comptes joueurs, de synchronisation entre appareils, de vérification officielle des profils ni d'API Garena connectée.
+- Ne jamais demander le mot de passe Free Fire. Une intégration automatique ne sera activée qu'après validation d'une source autorisée et de ses conditions d'utilisation.
+
+Cette bêta sert à tester l'interface et le parcours de saisie. Un classement communautaire partagé nécessitera un backend sécurisé, une authentification et une base de données.
