@@ -105,6 +105,46 @@ document.addEventListener("click", (event) => {
   }
 });
 $("openPassport").addEventListener("click", () => $("passport").scrollIntoView({behavior:"smooth"}));
+
+const COMMUNITY_KEY = "booyah-zone-community-v1";
+function loadCommunityPosts() {
+  try {
+    const data = JSON.parse(localStorage.getItem(COMMUNITY_KEY) || "[]");
+    return Array.isArray(data) ? data.filter(p => p && typeof p.text === "string" && typeof p.category === "string").slice(0,30) : [];
+  } catch { return []; }
+}
+let communityPosts = loadCommunityPosts();
+function renderCommunity() {
+  const host = $("communityFeed");
+  if (!communityPosts.length) {
+    host.innerHTML = '<div class="community-empty"><span>✦</span><b>La Zone attend ton premier message.</b><p>Publie une astuce ou lance une discussion pour commencer.</p></div>';
+    return;
+  }
+  host.innerHTML = communityPosts.map(post => '<article class="community-post"><div class="post-avatar">BZ</div><div class="post-body"><div class="post-meta"><b>Joueur BOOYAH</b><span>'+escapeHTML(post.category)+'</span><time>'+new Date(post.createdAt).toLocaleString("fr-FR",{dateStyle:"short",timeStyle:"short"})+'</time></div><p>'+escapeHTML(post.text).replace(/\n/g,"<br>")+'</p><small class="post-local-label">ENREGISTRÉ SUR CET APPAREIL</small></div></article>').join("");
+}
+$("communityText").addEventListener("input", () => {
+  $("communityCount").textContent = $("communityText").value.length+" / 300";
+});
+$("communityForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const text = $("communityText").value.trim();
+  if (!text) { $("communityStatus").textContent = "Écris un message avant de l'enregistrer."; return; }
+  const post = {category:$("communityCategory").value,text,createdAt:new Date().toISOString()};
+  communityPosts.unshift(post);
+  communityPosts = communityPosts.slice(0,30);
+  try {
+    localStorage.setItem(COMMUNITY_KEY,JSON.stringify(communityPosts));
+    $("communityStatus").textContent = "Publication enregistrée sur cet appareil. Elle n'est pas encore partagée publiquement.";
+    $("communityForm").reset();
+    $("communityCount").textContent = "0 / 300";
+    renderCommunity();
+  } catch {
+    communityPosts.shift();
+    $("communityStatus").textContent = "Stockage indisponible. Libère de l'espace puis réessaie.";
+  }
+});
+
+renderCommunity();
 const apiStatus = getProfileSourceStatus();
 if (!apiStatus.ready) console.info("BOOYAH ZONE: "+apiStatus.message);
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
