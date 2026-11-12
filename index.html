@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050916">
-  <meta name="description" content="BOOYAH ZONE — ton passeport joueur, tes statistiques et ton classement communautaire Free Fire.">
+  <meta name="description" content="BOOYAH ZONE — application communautaire Free Fire : profils, crews, classements et actualités."><meta name="application-name" content="BOOYAH ZONE"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles.css">
-  <title>BOOYAH ZONE — Storm Arena Hub</title>
+  <title>BOOYAH ZONE — Storm Arena App</title>
 </head>
 <body>
   <div class="app-shell">
@@ -51,6 +51,19 @@
         <article class="metric-card"><span class="metric-icon violet">↗</span><span class="metric-label">MEILLEUR PULSE</span><strong id="metricPulse">—</strong><small>Indice communautaire</small></article>
         <article class="metric-card"><span class="metric-icon blue">▤</span><span class="metric-label">PROFILS COMPLETS</span><strong id="metricComplete">0</strong><small>Fiches avec données saisies</small></article>
         <article class="metric-card"><span class="metric-icon green">⌁</span><span class="metric-label">SYNCHRONISATION</span><strong class="metric-state">LOCALE</strong><small>Cloud à connecter plus tard</small></article>
+      </section>
+
+      <section class="app-launcher" aria-label="Raccourcis de l'application">
+        <div class="launcher-heading"><span class="micro-label">QUICK ACCESS / TES MODULES</span><b>CHOISIS TON ESPACE</b></div>
+        <div class="launcher-grid">
+          <button class="launcher-tile" data-go="passport"><span>▣</span><b>Passeport</b><small>Ton profil joueur</small></button>
+          <button class="launcher-tile" data-go="ladder"><span>↗</span><b>Classement</b><small>La compétition</small></button>
+          <button class="launcher-tile" data-go="compare"><span>⇄</span><b>Comparateur</b><small>Face-à-face</small></button>
+          <button class="launcher-tile" data-go="crew"><span>◎</span><b>Ma Crew</b><small>Ton équipe</small></button>
+          <button class="launcher-tile" data-go="community"><span>✦</span><b>Communauté</b><small>Le fil de la Zone</small></button>
+          <button class="launcher-tile" data-go="news"><span>▤</span><b>Actualités</b><small>Le monde Free Fire</small></button>
+          <button class="launcher-tile" data-go="pulse"><span>⌁</span><b>BOOYAH Pulse</b><small>Ton indice</small></button>
+        </div>
       </section>
 
       <section class="content-grid">
