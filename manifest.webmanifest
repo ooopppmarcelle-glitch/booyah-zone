@@ -1,12 +1,12 @@
 {
-  "name": "BOOYAH ZONE — Player Intelligence",
+  "name": "BOOYAH ZONE — Storm Arena Hub",
   "short_name": "BOOYAH ZONE",
-  "description": "Passeport joueur, statistiques et classement communautaire Free Fire.",
+  "description": "Hub gaming communautaire Free Fire : profils, crews, classements et actualités.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#080b12",
-  "theme_color": "#080b12",
+  "background_color": "#050916",
+  "theme_color": "#050916",
   "icons": [
     {"src":"/assets/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
   ]
