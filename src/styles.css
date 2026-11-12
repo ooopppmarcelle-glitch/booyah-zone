@@ -67,3 +67,180 @@
 .crew-member-form{margin-top:17px}.crew-member-form>div{display:flex;gap:9px;margin-top:8px}.crew-member-form input{flex:1;min-width:0}.crew-member-form>.form-status{display:block;margin-top:8px}
 .crew-roster-heading{display:flex;justify-content:space-between;align-items:center;margin-top:22px}.crew-roster-heading h3{margin:0}.crew-roster{display:grid;gap:7px;margin-top:10px}.crew-roster-row{display:flex;align-items:center;gap:11px;padding:10px;border:1px solid var(--line);border-radius:9px;background:#0b131d}.crew-roster-avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:#35251b;color:var(--gold);font:800 14px "Barlow Condensed"}.crew-roster-row>span:nth-child(2){flex:1}.crew-roster-row b,.crew-roster-row small{display:block}.crew-roster-row b{font-size:10px}.crew-roster-row small{margin-top:3px;color:#8494a6;font-size:7px;letter-spacing:1px}.crew-member-index{font:800 14px "Barlow Condensed";color:#8494a6}.crew-delete{margin-top:15px}
 @media(max-width:760px){.crew-create-layout{grid-template-columns:1fr}.crew-hero{gap:10px;padding:13px}.crew-emblem{width:52px;height:52px}.crew-title h3{font-size:23px}.crew-tag-box{padding:8px}.crew-invite-row{align-items:flex-start;flex-direction:column}.crew-member-form>div{flex-direction:column}.crew-member-form .button{width:100%}}
+
+
+/* STORM ARENA INSPIRED — app-first neon interface */
+:root{
+  --bg:#050916;--surface:#0b1426;--surface2:#101e35;--line:#1d3655;
+  --text:#f4f8ff;--muted:#91a7c4;--orange:#ff8138;--gold:#ffd166;
+  --violet:#a66cff;--blue:#398bff;--green:#42e8c5;--neon:#19e6ff;
+  --radius:18px;
+}
+html{scroll-padding-top:76px;background:var(--bg)}
+body{
+  background:
+    radial-gradient(ellipse at 78% 0%,#1649a533 0,transparent 34rem),
+    radial-gradient(ellipse at 10% 35%,#7b36d51b 0,transparent 30rem),
+    linear-gradient(180deg,#050916,#070d1b 55%,#050916);
+  background-attachment:fixed;
+}
+.app-shell{min-height:100vh}
+.sidebar{
+  width:226px;padding:22px 14px;
+  background:linear-gradient(180deg,#091326f5,#070d1cf5);
+  border-right:1px solid #1a3a60;
+  box-shadow:8px 0 36px #02061170;
+  backdrop-filter:blur(18px);
+}
+.brand-mark{
+  background:linear-gradient(140deg,#18eaff,#397dff 55%,#9c55ff);
+  color:#07101f;box-shadow:0 0 22px #19dfff65,0 0 48px #397dff25;
+}
+.brand-copy b{color:var(--neon)}
+.side-label{color:#6585b0}
+.nav-link{border:1px solid transparent;border-radius:12px;color:#9db1cc}
+.nav-link span{color:#7e9ac0}
+.nav-link:hover,.nav-link.active{
+  background:linear-gradient(100deg,#12345b99,#1b235099);
+  border-color:#23618a;color:#fff;
+  box-shadow:inset 3px 0 var(--neon),0 0 18px #087bb51c;
+}
+.nav-link.active span{color:var(--neon);text-shadow:0 0 12px #19e6ff}
+.sidebar-bottom{border-color:#1c3554}
+.online-indicator{background:var(--neon);box-shadow:0 0 12px var(--neon)}
+.main-content{max-width:1700px;padding:0 34px 110px}
+.topbar{
+  height:68px;border-bottom:1px solid #1b3454;
+  background:linear-gradient(90deg,#07102199,#0a163099);
+  position:sticky;top:0;z-index:20;backdrop-filter:blur(18px);
+}
+.breadcrumb{color:#7292b9}
+.breadcrumb b{color:#d9f5ff}
+.status-chip{border-color:#24627a;background:#0c2a3b;color:#8deeff}
+.status-chip i{background:var(--neon);box-shadow:0 0 10px var(--neon)}
+.avatar-button{border:1px solid #398bff;background:#102a4d;color:#9ceeff;box-shadow:0 0 15px #398bff30}
+.welcome-row{padding:34px 0 24px}
+.eyebrow,.micro-label{color:#8da9d0}
+.eyebrow-line{background:var(--neon);box-shadow:0 0 10px var(--neon)}
+.welcome-row h1 em,.panel h2 em{color:var(--neon);text-shadow:0 0 22px #19e6ff55}
+.season-card{
+  background:radial-gradient(circle at 90% 10%,#1b8dff30,transparent 55%),linear-gradient(120deg,#101f3b,#10152b);
+  border-color:#28618b;box-shadow:inset 0 0 26px #278bff0c,0 0 24px #1674d01a;
+}
+.season-orbit{border-color:#20cce8;color:#9ff5ff;box-shadow:0 0 0 7px #19e6ff12,0 0 30px #19e6ff35}
+.metric-card,.panel{
+  background:linear-gradient(145deg,#101d33f2,#091326f5);
+  border-color:#1e3c60;box-shadow:0 12px 35px #02071455,inset 0 1px #ffffff08;
+}
+.metric-card{border-radius:16px}
+.metric-card:hover,.news-card:hover{border-color:#3287c5;box-shadow:0 0 24px #168de52b}
+.metric-icon.orange{background:#ff81381b;color:#ff9a64}
+.metric-icon.violet{background:#a66cff20;color:#bd9aff}
+.metric-icon.blue{background:#398bff20;color:#72b2ff}
+.metric-icon.green{background:#42e8c520;color:#70f7df}
+.metric-label{color:#93aac8}
+.metric-card .metric-state{color:var(--neon)}
+.content-grid{gap:16px}
+.panel{border-radius:19px}
+.panel-heading{align-items:center}
+.panel h2{letter-spacing:.9px}
+.tag{border-color:#294866;background:#10233a;color:#a9c4e5}
+.tag-orange{background:#3a211d;border-color:#8d4d32;color:#ffb18b}
+.tag-muted{background:#101e32;border-color:#29405e}
+.button{border-radius:11px}
+.button-primary{
+  background:linear-gradient(105deg,#19e6ff,#398bff 60%,#9862ff);
+  color:#061020;box-shadow:0 0 18px #19bde944,0 7px 20px #174da533;
+}
+.button-primary:hover{box-shadow:0 0 25px #19e6ff77}
+.button-quiet{background:#142947;border:1px solid #28527c;color:#c6e5ff}
+.inline-link{color:#79eaff}
+.empty-emblem,.player-avatar{
+  background:linear-gradient(145deg,#143c62,#22204a);
+  border-color:#286c9b;color:#a8f5ff;box-shadow:0 0 20px #168bd522;
+}
+.rank-number,.player-points{color:var(--gold)}
+.pulse-ring{
+  border-color:#153c68;outline-color:#19dfff;
+  background:radial-gradient(circle,#123a5b,#10152c 72%);
+  box-shadow:0 0 24px #19dfff25,inset 0 0 20px #19dfff14;
+}
+.pulse-ring span{color:#9cf5ff}
+.radar-rings i{border-color:#23739b}
+.radar-rings b{color:var(--neon);text-shadow:0 0 15px var(--neon)}
+.page-panel{scroll-margin-top:82px}
+.player-form input,.player-form select,.compare-controls select,.ladder-toolbar select,
+.crew-form input,.crew-member-form input,.community-composer select,.community-composer textarea{
+  background:#071326;border-color:#234363;color:#eef8ff;border-radius:10px;
+}
+.player-form input:focus,.player-form select:focus,.compare-controls select:focus,
+.crew-form input:focus,.crew-member-form input:focus,
+.community-composer select:focus,.community-composer textarea:focus{
+  border-color:var(--neon);box-shadow:0 0 0 3px #19e6ff17,0 0 16px #19e6ff15;
+}
+.community-composer,.crew-form,.crew-stats div,.crew-roster-row,.community-post{
+  background:linear-gradient(145deg,#10213a,#091326);border-color:#244567;
+}
+.composer-avatar,.post-avatar{background:linear-gradient(140deg,#19e6ff,#536aff 65%,#a66cff);color:#061020}
+.post-meta span{background:#123a55;color:#91efff}
+.crew-intro-card,.crew-hero{
+  background:radial-gradient(circle at 88% 8%,#168dff30,transparent 48%),linear-gradient(135deg,#101f3b,#171433);
+  border-color:#2d6590;
+}
+.crew-emblem{border-color:#2386ad;background:#102e4a;color:#9df6ff;box-shadow:0 0 28px #19e6ff24}
+.crew-tag-box{border-color:#286b8e}
+.crew-tag-box b,.crew-invite-row b{color:#9cf5ff}
+.crew-roster-avatar{background:#123755;color:#9cf5ff}
+.footer{border-color:#1a3554}
+.footer p{color:#7891b1}
+.news-art{
+  background:radial-gradient(circle at 70% 30%,#19e6ff36,transparent 32%),linear-gradient(135deg,#071a36,#18204a 58%,#311b45);
+}
+.news-art strong{color:#e6fbff;text-shadow:0 0 22px #19e6ff80}
+.news-art-orbit{border-color:#25dcff;box-shadow:0 0 30px #19e6ff66}
+.news-card{background:linear-gradient(145deg,#101f38,#0a1426);border-color:#214365}
+.mobile-nav{
+  background:#071225ed;border-top:1px solid #235078;
+  box-shadow:0 -12px 38px #020714aa,0 0 28px #168de51a;
+  backdrop-filter:blur(20px);
+}
+.mobile-nav a{color:#7895b9}
+.mobile-nav a.active{color:#9df5ff;text-shadow:0 0 14px #19e6ff66}
+.mobile-nav a.active:first-letter{color:var(--neon)}
+@media(min-width:761px){
+  .mobile-nav{
+    position:fixed;left:50%;bottom:16px;transform:translateX(-50%);
+    z-index:40;width:min(680px,calc(100% - 300px));height:62px;
+    display:flex;align-items:center;justify-content:space-around;
+    border:1px solid #28547b;border-radius:18px;padding:5px 12px;
+  }
+  .mobile-nav a{min-width:82px;padding:8px 12px;border-radius:12px}
+  .mobile-nav a.active{background:#123450}
+}
+@media(max-width:760px){
+  html{scroll-padding-top:64px}
+  .sidebar{display:none}
+  .main-content{margin:0;padding:0 13px 105px}
+  .topbar{height:60px;margin:0 -13px;padding:0 14px}
+  .mobile-brand{display:flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.7px}
+  .mobile-brand .brand-mark{width:31px;height:31px;border-radius:10px;font-size:20px}
+  .breadcrumb{display:none}
+  .welcome-row{display:block;padding:25px 2px 18px}
+  .welcome-row h1{font-size:56px}
+  .season-card{margin-top:18px;min-width:0}
+  .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+  .metric-card{min-height:112px;padding:13px}
+  .metric-label{left:49px;top:18px;font-size:7px}
+  .content-grid{grid-template-columns:1fr;gap:10px}
+  .panel{padding:15px;border-radius:16px}
+  .panel h2{font-size:23px}
+  .form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .mobile-nav{
+    display:grid;grid-template-columns:repeat(5,minmax(0,1fr));
+    left:0;right:0;bottom:0;width:100%;height:68px;
+    padding:6px 4px calc(6px + env(safe-area-inset-bottom));
+    border-radius:17px 17px 0 0;border-left:0;border-right:0;border-bottom:0;
+  }
+  .mobile-nav a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:16px}
+  .mobile-nav small{font-size:8px}
+}
