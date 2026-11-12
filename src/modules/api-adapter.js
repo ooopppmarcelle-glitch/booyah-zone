@@ -9,7 +9,7 @@ const PROVIDER = {
   enabled: false,
   docs: "https://docs.freefirecommunity.com/",
   endpoints: ["/info", "/stats", "/image", "/bancheck", "/wishlist", "/craftland"],
-  note: "Service communautaire indépendant de Garena. Prise en charge du Cameroun non confirmée."
+  note: "Service communautaire indépendant de Garena. Le compte testé affiche la région de profil ME, routée via SG selon la documentation. La couverture de tous les comptes au Cameroun reste non confirmée."
 };
 const BR_CAREER_KEYS = ["brCareer_solo", "brCareer_duo", "brCareer_squad"];
 
@@ -17,7 +17,7 @@ export function getProfileSourceStatus() {
   return {
     ready: false,
     providers: [PROVIDER],
-    message: "Connexion externe désactivée : couverture Cameroun, autorisations, quotas et réponses réelles à confirmer."
+    message: "Connexion externe désactivée : le compte testé renvoie ME (routage SG documenté), mais la couverture générale du Cameroun, les quotas et les conditions de production restent à confirmer."
   };
 }
 
