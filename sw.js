@@ -1,4 +1,4 @@
-const CACHE = "booyah-zone-v2-shell";
+const CACHE = "booyah-zone-v3-app-shell";
 const FILES = ["/", "/index.html", "/manifest.webmanifest", "/src/styles.css", "/src/app.js", "/src/core/store.js", "/src/modules/api-adapter.js", "/assets/logo.svg", "/assets/favicon.svg"];
 self.addEventListener("install", event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES))));
 self.addEventListener("activate", event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key))))));
