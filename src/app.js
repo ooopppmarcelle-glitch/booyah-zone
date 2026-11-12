@@ -96,15 +96,58 @@ $("playerShot").addEventListener("change", () => {
 $("sortMode").addEventListener("change", renderLadder);
 $("compareA").addEventListener("change", renderCompare);
 $("compareB").addEventListener("change", renderCompare);
+// Navigation d'application : un écran visible à la fois, sans défilement de page.
+const screenTitles = {
+  home: "ACCUEIL / PLAYER HUB",
+  passport: "PROFIL / PASSEPORT JOUEUR",
+  ladder: "RANKING / CLASSEMENTS",
+  compare: "DUEL / COMPARATEUR",
+  pulse: "ANALYSE / BOOYAH PULSE",
+  crew: "SQUAD / MA CREW",
+  community: "SOCIAL / ZONE",
+  news: "DISCOVER / ACTUS & ÉVÉNEMENTS"
+};
+function setScreen(screen, updateAddress = true) {
+  const allowed = Object.hasOwn(screenTitles, screen) ? screen : "home";
+  document.body.dataset.appScreen = allowed;
+  document.querySelectorAll(".main-content > *").forEach((node) => {
+    if (node.classList.contains("topbar")) return;
+    const isHomePart = node.matches(".welcome-row,.metric-grid,.content-grid");
+    const visible = allowed === "home" ? isHomePart : node.id === (allowed === "pulse" ? "pulse-detail" : allowed);
+    node.classList.toggle("screen-visible", visible);
+    node.classList.toggle("screen-hidden", !visible);
+  });
+  document.querySelectorAll("[data-view]").forEach((el) => {
+    el.classList.toggle("active", el.dataset.view === allowed);
+    if (el.dataset.view === allowed) el.setAttribute("aria-current", "page");
+    else el.removeAttribute("aria-current");
+  });
+  const crumb = document.querySelector(".breadcrumb");
+  if (crumb) crumb.innerHTML = "BOOYAH ZONE / <b>" + screenTitles[allowed] + "</b>";
+  const title = document.querySelector(".mobile-brand b");
+  if (title) title.textContent = "BOOYAH ZONE";
+  if (updateAddress) history.replaceState(null, "", allowed === "home" ? location.pathname : "#" + allowed);
+  window.scrollTo({top:0,behavior:"instant"});
+}
 document.addEventListener("click", (event) => {
-  const target = event.target.closest("[data-go]");
-  if (target) document.getElementById(target.dataset.go)?.scrollIntoView({behavior:"smooth"});
+  const go = event.target.closest("[data-go]");
+  if (go) {
+    event.preventDefault();
+    setScreen(go.dataset.go === "pulse-detail" ? "pulse" : go.dataset.go);
+    return;
+  }
   const nav = event.target.closest("[data-view]");
   if (nav) {
-    document.querySelectorAll("[data-view]").forEach(el => el.classList.toggle("active", el === nav));
+    event.preventDefault();
+    setScreen(nav.dataset.view);
   }
 });
-$("openPassport").addEventListener("click", () => $("passport").scrollIntoView({behavior:"smooth"}));
+$("openPassport").addEventListener("click", () => setScreen("passport"));
+window.addEventListener("hashchange", () => {
+  const route = location.hash.slice(1) || "home";
+  setScreen(route === "pulse-detail" ? "pulse" : route, false);
+});
+setScreen(location.hash.slice(1) || "home", false);
 
 const COMMUNITY_KEY = "booyah-zone-community-v1";
 function loadCommunityPosts() {
