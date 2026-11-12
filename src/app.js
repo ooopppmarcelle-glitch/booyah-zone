@@ -149,3 +149,64 @@ const apiStatus = getProfileSourceStatus();
 if (!apiStatus.ready) console.info("BOOYAH ZONE: "+apiStatus.message);
 if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js").catch(() => {}));
 renderAll();
+
+
+// Crew prototype — données locales à cet appareil, sans invitations réseau.
+const CREW_KEY = "booyah-zone-crew-v1";
+function loadCrew() {
+  try {
+    const value = JSON.parse(localStorage.getItem(CREW_KEY) || "null");
+    if (!value || typeof value.name !== "string" || !Array.isArray(value.members)) return null;
+    return value;
+  } catch { return null; }
+}
+let crew = loadCrew();
+function saveCrew() {
+  try { localStorage.setItem(CREW_KEY, JSON.stringify(crew)); return true; }
+  catch { return false; }
+}
+function renderCrew() {
+  $("crewEmpty").hidden = Boolean(crew);
+  $("crewDashboard").hidden = !crew;
+  if (!crew) return;
+  $("crewBadge").textContent = escapeHTML(crew.tag);
+  $("crewTitle").textContent = crew.name;
+  $("crewDescriptionView").textContent = crew.description || "Une équipe BOOYAH ZONE.";
+  $("crewTagView").textContent = crew.tag;
+  $("crewInviteCode").textContent = crew.code;
+  $("crewMemberCount").textContent = crew.members.length;
+  $("crewRoster").innerHTML = crew.members.map((member,index) => '<div class="crew-roster-row"><span class="crew-roster-avatar">'+escapeHTML(getInitials(member.name))+'</span><span><b>'+escapeHTML(member.name)+'</b><small>'+(index===0?'FONDATEUR':'MEMBRE')+'</small></span><span class="crew-member-index">#'+String(index+1).padStart(2,"0")+'</span></div>').join("");
+}
+$("crewCreateForm").addEventListener("submit", event => {
+  event.preventDefault();
+  if (crew) return;
+  const name = $("crewName").value.trim();
+  const tag = $("crewTag").value.trim().toUpperCase();
+  if (tag.length < 2 || tag.length > 5) { $("crewCreateStatus").textContent = "Le tag doit contenir entre 2 et 5 caractères."; return; }
+  const founder = players[0]?.name || "Fondateur BOOYAH";
+  crew = {name,tag,description:$("crewDescription").value.trim(),code:"BZ-"+Math.random().toString(36).slice(2,7).toUpperCase(),members:[{name:founder,role:"owner"}],createdAt:new Date().toISOString()};
+  if (!saveCrew()) { crew = null; $("crewCreateStatus").textContent = "Stockage indisponible. Réessaie."; return; }
+  renderCrew();
+});
+$("crewMemberForm").addEventListener("submit", event => {
+  event.preventDefault();
+  const name = $("crewMemberName").value.trim();
+  if (!name || !crew) return;
+  if (crew.members.some(member => member.name.toLowerCase() === name.toLowerCase())) { $("crewMemberStatus").textContent = "Ce pseudo est déjà dans le roster."; return; }
+  if (crew.members.length >= 20) { $("crewMemberStatus").textContent = "La limite de démonstration est de 20 membres."; return; }
+  crew.members.push({name,role:"member"});
+  if (!saveCrew()) { crew.members.pop(); $("crewMemberStatus").textContent = "Stockage indisponible. Réessaie."; return; }
+  $("crewMemberForm").reset();
+  $("crewMemberStatus").textContent = "Membre ajouté à la liste locale.";
+  renderCrew();
+});
+$("copyCrewCode").addEventListener("click", async () => {
+  if (!crew) return;
+  try { await navigator.clipboard.writeText(crew.code); $("copyCrewCode").textContent = "Code copié"; }
+  catch { $("crewMemberStatus").textContent = "Copie indisponible sur ce navigateur : sélectionne le code."; }
+});
+$("deleteCrew").addEventListener("click", () => {
+  if (!crew || !confirm("Supprimer cette crew enregistrée sur cet appareil ?")) return;
+  localStorage.removeItem(CREW_KEY); crew = null; $("crewCreateForm").reset(); renderCrew();
+});
+renderCrew();
