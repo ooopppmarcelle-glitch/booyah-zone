@@ -139,8 +139,29 @@
       </section>
 
       <section class="panel page-panel" id="crew">
-        <div class="panel-heading"><div><span class="micro-label">MODULE 04 / GROUPE</span><h2>MA <em>CREW</em></h2></div><span class="tag tag-muted">À CONSTRUIRE</span></div>
-        <div class="coming-row"><div class="coming-icon">◎</div><div><b>Une équipe, un objectif commun.</b><p>Les invitations, les crews privées et les classements d'équipe arriveront après la mise en place des comptes et de la base de données partagée.</p></div></div>
+        <div class="panel-heading"><div><span class="micro-label">MODULE 08 / ESPRIT D'ÉQUIPE</span><h2>MA <em>CREW</em></h2></div><span class="tag tag-orange">BÊTA LOCALE</span></div>
+        <p class="section-intro">Crée une équipe, donne-lui un nom et ajoute les pseudos de tes coéquipiers. Cette première version conserve les données sur cet appareil : les invitations ne connectent pas encore plusieurs téléphones.</p>
+        <div id="crewEmpty" class="crew-create-layout">
+          <div class="crew-intro-card"><span class="crew-emblem">◎</span><h3>UNE ÉQUIPE. UN OBJECTIF.</h3><p>Construis ton identité collective et prépare ton roster BOOYAH.</p></div>
+          <form id="crewCreateForm" class="crew-form">
+            <label>NOM DE LA CREW<input id="crewName" maxlength="24" required placeholder="Ex. : NIGHT WOLVES"></label>
+            <label>TAG (2 À 5 CARACTÈRES)<input id="crewTag" maxlength="5" minlength="2" required placeholder="Ex. : NW"></label>
+            <label>DESCRIPTION<input id="crewDescription" maxlength="90" placeholder="Notre objectif dans la Zone..."></label>
+            <button class="button button-primary" type="submit">Créer ma crew <span>↗</span></button>
+            <p id="crewCreateStatus" class="form-status" aria-live="polite">Une crew par appareil dans cette version de démonstration.</p>
+          </form>
+        </div>
+        <div id="crewDashboard" hidden>
+          <div class="crew-hero">
+            <div class="crew-emblem" id="crewBadge">BZ</div><div class="crew-title"><span class="micro-label">TON ÉQUIPE</span><h3 id="crewTitle">—</h3><p id="crewDescriptionView"></p></div>
+            <div class="crew-tag-box"><small>TAG</small><b id="crewTagView">—</b></div>
+          </div>
+          <div class="crew-stats"><div><small>MEMBRES</small><b id="crewMemberCount">1</b></div><div><small>STATUT</small><b>LOCALE</b></div><div><small>RÔLE</small><b>FONDATEUR</b></div></div>
+          <div class="crew-invite-row"><div><small>CODE D'INVITATION (APERÇU)</small><b id="crewInviteCode">—</b></div><button id="copyCrewCode" class="button button-quiet" type="button">Copier le code</button></div>
+          <form id="crewMemberForm" class="crew-member-form"><label for="crewMemberName">Ajouter un coéquipier par pseudo</label><div><input id="crewMemberName" maxlength="28" required placeholder="Pseudo du joueur"><button class="button button-primary" type="submit">Ajouter</button></div><p id="crewMemberStatus" class="form-status" aria-live="polite">Ajout local uniquement : le joueur n'est pas notifié.</p></form>
+          <div class="crew-roster-heading"><h3>ROSTER</h3><span class="tag tag-muted">MEMBRES ENREGISTRÉS ICI</span></div><div id="crewRoster" class="crew-roster"></div>
+          <button id="deleteCrew" class="button button-quiet crew-delete" type="button">Supprimer cette crew locale</button>
+        </div>
       </section>
 
       <section class="panel page-panel" id="pulse-detail">
