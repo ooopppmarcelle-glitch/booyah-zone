@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#080b12">
-  <meta name="description" content="BOOYAH ZONE — ton passeport joueur, tes statistiques et ton classement communautaire Free Fire.">
+  <meta name="theme-color" content="#050916">
+  <meta name="description" content="BOOYAH ZONE — application communautaire Free Fire : profils, crews, classements et actualités."><meta name="application-name" content="BOOYAH ZONE"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/src/styles.css">
-  <title>BOOYAH ZONE — Player Intelligence</title>
+  <title>BOOYAH ZONE — Storm Arena App</title>
 </head>
 <body>
   <div class="app-shell">
     <aside class="sidebar">
-      <a class="brand" href="#home" aria-label="BOOYAH ZONE accueil"><span class="brand-mark">B<span>•</span></span><span class="brand-copy">BOOYAH <b>ZONE</b><small>PLAYER INTELLIGENCE</small></span></a>
+      <a class="brand" href="#home" aria-label="BOOYAH ZONE accueil"><span class="brand-mark">B<span>•</span></span><span class="brand-copy">BOOYAH <b>ZONE</b><small>STORM ARENA HUB</small></span></a>
       <div class="side-label">ESPACE JOUEUR</div>
       <nav class="side-nav" aria-label="Navigation principale">
         <a class="nav-link active" href="#home" data-view="home"><span>◈</span> Vue générale</a>
@@ -27,7 +27,9 @@
       <div class="side-label">COMMUNAUTÉ</div>
       <nav class="side-nav">
         <a class="nav-link" href="#crew" data-view="crew"><span>◎</span> Ma Crew</a>
+        <a class="nav-link" href="#community" data-view="community"><span>✎</span> Mur communautaire</a>
         <a class="nav-link" href="#radar" data-view="radar"><span>✳</span> Radar de la Zone</a>
+        <a class="nav-link" href="#news" data-view="news"><span>▣</span> Actus & événements</a>
       </nav>
       <div class="sidebar-bottom"><div class="online-indicator"></div><span>MODE APERÇU LOCAL</span><small>V2 • CAMEROUN & COMMUNAUTÉ</small></div>
     </aside>
@@ -51,6 +53,19 @@
         <article class="metric-card"><span class="metric-icon green">⌁</span><span class="metric-label">SYNCHRONISATION</span><strong class="metric-state">LOCALE</strong><small>Cloud à connecter plus tard</small></article>
       </section>
 
+      <section class="app-launcher" aria-label="Raccourcis de l'application">
+        <div class="launcher-heading"><span class="micro-label">QUICK ACCESS / TES MODULES</span><b>CHOISIS TON ESPACE</b></div>
+        <div class="launcher-grid">
+          <button class="launcher-tile" data-go="passport"><span>▣</span><b>Passeport</b><small>Ton profil joueur</small></button>
+          <button class="launcher-tile" data-go="ladder"><span>↗</span><b>Classement</b><small>La compétition</small></button>
+          <button class="launcher-tile" data-go="compare"><span>⇄</span><b>Comparateur</b><small>Face-à-face</small></button>
+          <button class="launcher-tile" data-go="crew"><span>◎</span><b>Ma Crew</b><small>Ton équipe</small></button>
+          <button class="launcher-tile" data-go="community"><span>✦</span><b>Communauté</b><small>Le fil de la Zone</small></button>
+          <button class="launcher-tile" data-go="news"><span>▤</span><b>Actualités</b><small>Le monde Free Fire</small></button>
+          <button class="launcher-tile" data-go="pulse"><span>⌁</span><b>BOOYAH Pulse</b><small>Ton indice</small></button>
+        </div>
+      </section>
+
       <section class="content-grid">
         <article class="panel spotlight-panel">
           <div class="panel-heading"><div><span class="micro-label">TON IDENTITÉ GAMING</span><h2>PASSEPORT <em>JOUEUR</em></h2></div><span class="tag tag-muted">PERSONNEL</span></div>
@@ -71,6 +86,21 @@
           <div class="panel-heading"><div><span class="micro-label">ACTIVITÉ DE LA ZONE</span><h2>RADAR <em>COMMUNAUTÉ</em></h2></div><span class="tag tag-muted">À VENIR</span></div>
           <div class="radar-empty"><div class="radar-rings"><i></i><i></i><i></i><b>✳</b></div><div><b>La Zone se construit.</b><p>Défis amicaux, annonces et espaces de crew seront ajoutés dans les prochaines versions.</p></div></div>
         </article>
+      </section>
+
+
+      <section class="panel page-panel news-panel" id="news">
+        <div class="panel-heading"><div><span class="micro-label">MODULE 06 / LE FIL DE LA ZONE</span><h2>ACTUS & <em>ÉVÉNEMENTS</em></h2></div><span class="tag tag-orange">SOURCES OFFICIELLES</span></div>
+        <p class="section-intro">Les annonces sont résumées ici et renvoient vers leurs sources. Une annonce mondiale ne garantit pas automatiquement la disponibilité de l'événement au Cameroun.</p>
+        <div class="news-feature">
+          <div class="news-art"><span class="news-art-kicker">FREE FIRE WORLD SERIES 2026</span><strong>STORM<br>ARENA</strong><span class="news-art-date">6 — 28 NOVEMBRE</span><i class="news-art-orbit"></i></div>
+          <div class="news-copy"><span class="tag tag-orange">CAMPAGNE ANNONCÉE</span><h3>Storm Arena accompagne les finales mondiales FFWS 2026</h3><p>Garena a annoncé une campagne thématique avec des missions, des éléments visuels spéciaux et des récompenses. La période des finales mondiales annoncée est du 6 au 28 novembre 2026 à Bangkok.</p><div class="news-meta"><span>Annonce Garena • 4 novembre 2026</span><span>Disponibilité Cameroun : à confirmer</span></div><a class="button button-primary news-button" href="https://ff.garena.com/en/article/1736" target="_blank" rel="noopener noreferrer">Lire l'annonce officielle <span>↗</span></a></div>
+        </div>
+        <div class="news-card-grid">
+          <article class="news-card"><span class="news-card-icon">▤</span><span class="micro-label">ACTUALITÉS</span><h3>Les annonces de Garena</h3><p>Mises à jour, collaborations, annonces et actualités esports publiées par l'éditeur.</p><a class="inline-link" href="https://ff.garena.com/en/news/" target="_blank" rel="noopener noreferrer">Consulter les actualités ↗</a></article>
+          <article class="news-card"><span class="news-card-icon">◷</span><span class="micro-label">ÉVÉNEMENTS</span><h3>Comprendre les événements</h3><p>Retrouve les explications officielles sur les événements en jeu, les événements web et les missions.</p><a class="inline-link" href="https://ffsupport.garena.com/hc/en-us/articles/4412921002522-Free-Fire-Events" target="_blank" rel="noopener noreferrer">Voir le guide officiel ↗</a></article>
+          <article class="news-card"><span class="news-card-icon">✦</span><span class="micro-label">GUIDES BOOYAH</span><h3>Guides & astuces communautaires</h3><p>Cette rubrique accueillera des tutoriels rédigés et vérifiés par la communauté BOOYAH ZONE.</p><span class="tag tag-muted">CONTENU À AJOUTER</span></article>
+        </div>
       </section>
 
       <section class="panel page-panel" id="passport">
@@ -104,9 +134,47 @@
         <div id="compareResult" class="compare-result"><p class="empty-note">Ajoute au moins deux profils pour les comparer.</p></div>
       </section>
 
+
+      <section class="panel page-panel community-panel" id="community">
+        <div class="panel-heading"><div><span class="micro-label">MODULE 07 / LA VOIX DES JOUEURS</span><h2>MUR DE LA <em>ZONE</em></h2></div><span class="tag tag-orange">ESPACE COMMUNAUTAIRE</span></div>
+        <p class="section-intro">Partage une astuce, une actualité ou une recherche de coéquipiers. Pour cette version, les publications sont enregistrées uniquement sur cet appareil : elles ne sont pas encore visibles par les autres joueurs.</p>
+        <form id="communityForm" class="community-composer">
+          <div class="composer-top"><div class="composer-avatar">BZ</div><div><b>Prends la parole dans la Zone</b><small>Respect, fair-play et entraide avant tout.</small></div></div>
+          <label class="sr-only" for="communityCategory">Catégorie de publication</label>
+          <select id="communityCategory"><option value="Discussion">Discussion</option><option value="Astuce">Astuce</option><option value="Recherche d'équipe">Recherche d'équipe</option><option value="Actualité">Actualité</option></select>
+          <label class="sr-only" for="communityText">Texte de la publication</label>
+          <textarea id="communityText" maxlength="300" rows="3" placeholder="Écris ton message (300 caractères maximum)..." required></textarea>
+          <div class="composer-footer"><span id="communityCount">0 / 300</span><button class="button button-primary" type="submit">Enregistrer la publication <span>↗</span></button></div>
+          <p id="communityStatus" class="form-status" aria-live="polite">Publication locale — le partage public sera activé avec les comptes et le serveur.</p>
+        </form>
+        <div class="community-feed-heading"><div><span class="micro-label">TON FIL</span><h3>PUBLICATIONS RÉCENTES</h3></div><span class="tag tag-muted">SUR CET APPAREIL</span></div>
+        <div id="communityFeed" class="community-feed"><div class="community-empty"><span>✦</span><b>La Zone attend ton premier message.</b><p>Publie une astuce ou lance une discussion pour commencer.</p></div></div>
+      </section>
+
       <section class="panel page-panel" id="crew">
-        <div class="panel-heading"><div><span class="micro-label">MODULE 04 / GROUPE</span><h2>MA <em>CREW</em></h2></div><span class="tag tag-muted">À CONSTRUIRE</span></div>
-        <div class="coming-row"><div class="coming-icon">◎</div><div><b>Une équipe, un objectif commun.</b><p>Les invitations, les crews privées et les classements d'équipe arriveront après la mise en place des comptes et de la base de données partagée.</p></div></div>
+        <div class="panel-heading"><div><span class="micro-label">MODULE 08 / ESPRIT D'ÉQUIPE</span><h2>MA <em>CREW</em></h2></div><span class="tag tag-orange">BÊTA LOCALE</span></div>
+        <p class="section-intro">Crée une équipe, donne-lui un nom et ajoute les pseudos de tes coéquipiers. Cette première version conserve les données sur cet appareil : les invitations ne connectent pas encore plusieurs téléphones.</p>
+        <div id="crewEmpty" class="crew-create-layout">
+          <div class="crew-intro-card"><span class="crew-emblem">◎</span><h3>UNE ÉQUIPE. UN OBJECTIF.</h3><p>Construis ton identité collective et prépare ton roster BOOYAH.</p></div>
+          <form id="crewCreateForm" class="crew-form">
+            <label>NOM DE LA CREW<input id="crewName" maxlength="24" required placeholder="Ex. : NIGHT WOLVES"></label>
+            <label>TAG (2 À 5 CARACTÈRES)<input id="crewTag" maxlength="5" minlength="2" required placeholder="Ex. : NW"></label>
+            <label>DESCRIPTION<input id="crewDescription" maxlength="90" placeholder="Notre objectif dans la Zone..."></label>
+            <button class="button button-primary" type="submit">Créer ma crew <span>↗</span></button>
+            <p id="crewCreateStatus" class="form-status" aria-live="polite">Une crew par appareil dans cette version de démonstration.</p>
+          </form>
+        </div>
+        <div id="crewDashboard" hidden>
+          <div class="crew-hero">
+            <div class="crew-emblem" id="crewBadge">BZ</div><div class="crew-title"><span class="micro-label">TON ÉQUIPE</span><h3 id="crewTitle">—</h3><p id="crewDescriptionView"></p></div>
+            <div class="crew-tag-box"><small>TAG</small><b id="crewTagView">—</b></div>
+          </div>
+          <div class="crew-stats"><div><small>MEMBRES</small><b id="crewMemberCount">1</b></div><div><small>STATUT</small><b>LOCALE</b></div><div><small>RÔLE</small><b>FONDATEUR</b></div></div>
+          <div class="crew-invite-row"><div><small>CODE D'INVITATION (APERÇU)</small><b id="crewInviteCode">—</b></div><button id="copyCrewCode" class="button button-quiet" type="button">Copier le code</button></div>
+          <form id="crewMemberForm" class="crew-member-form"><label for="crewMemberName">Ajouter un coéquipier par pseudo</label><div><input id="crewMemberName" maxlength="28" required placeholder="Pseudo du joueur"><button class="button button-primary" type="submit">Ajouter</button></div><p id="crewMemberStatus" class="form-status" aria-live="polite">Ajout local uniquement : le joueur n'est pas notifié.</p></form>
+          <div class="crew-roster-heading"><h3>ROSTER</h3><span class="tag tag-muted">MEMBRES ENREGISTRÉS ICI</span></div><div id="crewRoster" class="crew-roster"></div>
+          <button id="deleteCrew" class="button button-quiet crew-delete" type="button">Supprimer cette crew locale</button>
+        </div>
       </section>
 
       <section class="panel page-panel" id="pulse-detail">
@@ -118,7 +186,7 @@
       <footer class="footer"><span class="brand-mark small-mark">B<span>•</span></span><p>BOOYAH ZONE est un projet communautaire indépendant, non affilié à Garena. Free Fire est une marque de ses propriétaires respectifs.</p><small>BOOYAH ZONE V2 • PLAYER INTELLIGENCE • 2026</small></footer>
     </main>
   </div>
-  <nav class="mobile-nav" aria-label="Navigation mobile"><a class="active" href="#home" data-view="home">◈<small>Accueil</small></a><a href="#passport" data-view="passport">▣<small>Profil</small></a><a href="#ladder" data-view="ladder">↗<small>Classement</small></a><a href="#compare" data-view="compare">⇄<small>Comparer</small></a></nav>
+  <nav class="mobile-nav" aria-label="Navigation mobile"><a class="active" href="#home" data-view="home">◈<small>Accueil</small></a><a href="#passport" data-view="passport">▣<small>Profil</small></a><a href="#ladder" data-view="ladder">↗<small>Classement</small></a><a href="#community" data-view="community">✎<small>Zone</small></a><a href="#news" data-view="news">▤<small>Actus</small></a></nav>
   <script type="module" src="/src/app.js"></script>
 </body>
 </html>
