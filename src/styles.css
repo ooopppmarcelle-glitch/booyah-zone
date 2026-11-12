@@ -49,3 +49,21 @@
 .post-body p{margin:10px 0;color:#d5dee7;font-size:10px;line-height:1.7;overflow-wrap:anywhere}
 .post-local-label{font-size:7px;letter-spacing:1px;color:#728398}
 @media(max-width:760px){.community-composer{padding:13px}.composer-footer{align-items:stretch;flex-direction:column}.composer-footer .button{width:100%}.community-feed-heading{gap:8px}.post-meta time{margin-left:0;width:100%}}
+
+
+/* Crew management — local prototype */
+.crew-create-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px;margin-top:18px}
+.crew-intro-card{padding:24px;border:1px solid #60432e;border-radius:12px;background:radial-gradient(circle at 85% 10%,#ff9b3830,transparent 45%),linear-gradient(145deg,#251b15,#101a26)}
+.crew-emblem{width:68px;height:68px;display:grid;place-items:center;border:1px solid #a76636;border-radius:18px;background:#ff8b2518;color:#ffc16b;font:900 28px "Barlow Condensed";box-shadow:0 0 30px #ff8b2518}
+.crew-intro-card h3,.crew-roster-heading h3{font:900 22px "Barlow Condensed";margin:18px 0 8px}
+.crew-intro-card p,.crew-title p{font-size:10px;line-height:1.7;color:var(--muted)}
+.crew-form{display:grid;gap:11px;padding:18px;border:1px solid var(--line);border-radius:12px;background:#0b131d}
+.crew-form label,.crew-member-form label{display:grid;gap:7px;font-size:8px;font-weight:900;letter-spacing:1px;color:#9eacbb}
+.crew-form input,.crew-member-form input{width:100%;padding:12px;border:1px solid #2a3949;border-radius:8px;background:#080f18;color:#eef3f7;font:11px "DM Sans"}
+.crew-hero{display:flex;align-items:center;gap:16px;padding:19px;border:1px solid #60432e;border-radius:13px;background:linear-gradient(110deg,#251b15,#111b27)}
+.crew-title{flex:1}.crew-title h3{font:900 28px "Barlow Condensed";margin:5px 0}.crew-title p{margin:0}.crew-tag-box{padding:10px 16px;border:1px solid #6c4b31;border-radius:9px;text-align:center}.crew-tag-box small,.crew-tag-box b{display:block}.crew-tag-box small,.crew-invite-row small,.crew-stats small{font-size:8px;color:#91a0b0;letter-spacing:1px}.crew-tag-box b{font:900 20px "Barlow Condensed";color:var(--gold)}
+.crew-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:12px 0}.crew-stats div{padding:13px;border:1px solid var(--line);border-radius:9px;background:#0b131d}.crew-stats b{display:block;margin-top:7px;font:800 16px "Barlow Condensed"}
+.crew-invite-row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px;border:1px dashed #6a4b32;border-radius:10px}.crew-invite-row b{display:block;margin-top:5px;font:900 19px "Barlow Condensed";letter-spacing:2px;color:var(--gold)}
+.crew-member-form{margin-top:17px}.crew-member-form>div{display:flex;gap:9px;margin-top:8px}.crew-member-form input{flex:1;min-width:0}.crew-member-form>.form-status{display:block;margin-top:8px}
+.crew-roster-heading{display:flex;justify-content:space-between;align-items:center;margin-top:22px}.crew-roster-heading h3{margin:0}.crew-roster{display:grid;gap:7px;margin-top:10px}.crew-roster-row{display:flex;align-items:center;gap:11px;padding:10px;border:1px solid var(--line);border-radius:9px;background:#0b131d}.crew-roster-avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:#35251b;color:var(--gold);font:800 14px "Barlow Condensed"}.crew-roster-row>span:nth-child(2){flex:1}.crew-roster-row b,.crew-roster-row small{display:block}.crew-roster-row b{font-size:10px}.crew-roster-row small{margin-top:3px;color:#8494a6;font-size:7px;letter-spacing:1px}.crew-member-index{font:800 14px "Barlow Condensed";color:#8494a6}.crew-delete{margin-top:15px}
+@media(max-width:760px){.crew-create-layout{grid-template-columns:1fr}.crew-hero{gap:10px;padding:13px}.crew-emblem{width:52px;height:52px}.crew-title h3{font-size:23px}.crew-tag-box{padding:8px}.crew-invite-row{align-items:flex-start;flex-direction:column}.crew-member-form>div{flex-direction:column}.crew-member-form .button{width:100%}}
