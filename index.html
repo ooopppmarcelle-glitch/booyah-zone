@@ -27,6 +27,7 @@
       <div class="side-label">COMMUNAUTÉ</div>
       <nav class="side-nav">
         <a class="nav-link" href="#crew" data-view="crew"><span>◎</span> Ma Crew</a>
+        <a class="nav-link" href="#community" data-view="community"><span>✎</span> Mur communautaire</a>
         <a class="nav-link" href="#radar" data-view="radar"><span>✳</span> Radar de la Zone</a>
         <a class="nav-link" href="#news" data-view="news"><span>▣</span> Actus & événements</a>
       </nav>
@@ -120,6 +121,23 @@
         <div id="compareResult" class="compare-result"><p class="empty-note">Ajoute au moins deux profils pour les comparer.</p></div>
       </section>
 
+
+      <section class="panel page-panel community-panel" id="community">
+        <div class="panel-heading"><div><span class="micro-label">MODULE 07 / LA VOIX DES JOUEURS</span><h2>MUR DE LA <em>ZONE</em></h2></div><span class="tag tag-orange">ESPACE COMMUNAUTAIRE</span></div>
+        <p class="section-intro">Partage une astuce, une actualité ou une recherche de coéquipiers. Pour cette version, les publications sont enregistrées uniquement sur cet appareil : elles ne sont pas encore visibles par les autres joueurs.</p>
+        <form id="communityForm" class="community-composer">
+          <div class="composer-top"><div class="composer-avatar">BZ</div><div><b>Prends la parole dans la Zone</b><small>Respect, fair-play et entraide avant tout.</small></div></div>
+          <label class="sr-only" for="communityCategory">Catégorie de publication</label>
+          <select id="communityCategory"><option value="Discussion">Discussion</option><option value="Astuce">Astuce</option><option value="Recherche d'équipe">Recherche d'équipe</option><option value="Actualité">Actualité</option></select>
+          <label class="sr-only" for="communityText">Texte de la publication</label>
+          <textarea id="communityText" maxlength="300" rows="3" placeholder="Écris ton message (300 caractères maximum)..." required></textarea>
+          <div class="composer-footer"><span id="communityCount">0 / 300</span><button class="button button-primary" type="submit">Enregistrer la publication <span>↗</span></button></div>
+          <p id="communityStatus" class="form-status" aria-live="polite">Publication locale — le partage public sera activé avec les comptes et le serveur.</p>
+        </form>
+        <div class="community-feed-heading"><div><span class="micro-label">TON FIL</span><h3>PUBLICATIONS RÉCENTES</h3></div><span class="tag tag-muted">SUR CET APPAREIL</span></div>
+        <div id="communityFeed" class="community-feed"><div class="community-empty"><span>✦</span><b>La Zone attend ton premier message.</b><p>Publie une astuce ou lance une discussion pour commencer.</p></div></div>
+      </section>
+
       <section class="panel page-panel" id="crew">
         <div class="panel-heading"><div><span class="micro-label">MODULE 04 / GROUPE</span><h2>MA <em>CREW</em></h2></div><span class="tag tag-muted">À CONSTRUIRE</span></div>
         <div class="coming-row"><div class="coming-icon">◎</div><div><b>Une équipe, un objectif commun.</b><p>Les invitations, les crews privées et les classements d'équipe arriveront après la mise en place des comptes et de la base de données partagée.</p></div></div>
@@ -134,7 +152,7 @@
       <footer class="footer"><span class="brand-mark small-mark">B<span>•</span></span><p>BOOYAH ZONE est un projet communautaire indépendant, non affilié à Garena. Free Fire est une marque de ses propriétaires respectifs.</p><small>BOOYAH ZONE V2 • PLAYER INTELLIGENCE • 2026</small></footer>
     </main>
   </div>
-  <nav class="mobile-nav" aria-label="Navigation mobile"><a class="active" href="#home" data-view="home">◈<small>Accueil</small></a><a href="#passport" data-view="passport">▣<small>Profil</small></a><a href="#ladder" data-view="ladder">↗<small>Classement</small></a><a href="#news" data-view="news">▤<small>Actus</small></a><a href="#compare" data-view="compare">⇄<small>Comparer</small></a></nav>
+  <nav class="mobile-nav" aria-label="Navigation mobile"><a class="active" href="#home" data-view="home">◈<small>Accueil</small></a><a href="#passport" data-view="passport">▣<small>Profil</small></a><a href="#ladder" data-view="ladder">↗<small>Classement</small></a><a href="#community" data-view="community">✎<small>Zone</small></a><a href="#news" data-view="news">▤<small>Actus</small></a></nav>
   <script type="module" src="/src/app.js"></script>
 </body>
 </html>
